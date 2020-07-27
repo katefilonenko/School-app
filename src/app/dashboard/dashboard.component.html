@@ -1,0 +1,19 @@
+<h3>Subjects</h3>
+<div class="grid grid-pad">
+  <button mat-raised-button *ngFor="let subject of subjects" class="col-1-4"
+      routerLink="/detail/{{subject.id}}">
+        {{subject.name}}
+  </button>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<h3>Classes</h3>
+<div class="grid grid-pad">
+  <button mat-raised-button *ngFor="let sclass of sclasses" class="col-1-4"
+      routerLink="/detail/{{sclass.num}}{{sclass.letter}}">
+      {{sclass.num}}{{sclass.letter}}
+  </button>
+</div>

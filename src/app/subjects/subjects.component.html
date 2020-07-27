@@ -1,0 +1,24 @@
+<h2>Subjects</h2>
+
+<div>
+ 
+    <mat-form-field>
+      <mat-label>Add Subject</mat-label>
+      <textarea matInput #subjectName placeholder="Name"></textarea>
+    </mat-form-field>
+  
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button mat-button color="primary" (click)="add(subjectName.value); subjectName.value=''" title="add subject">
+    Add
+  </button>
+</div>
+
+<ul class="subjects">
+  <button class="button" mat-raised-button *ngFor="let subject of subjects"
+     routerLink="/detail/{{subject.id}}">
+      {{subject.id}}) {{subject.name}}
+      <button mat-icon-button color="primary" class="delete" title="delete subject"
+        (click)="delete(subject)"><mat-icon>delete</mat-icon>
+      </button>
+  </button>
+</ul>

@@ -1,0 +1,19 @@
+<div *ngIf="sclass">
+
+    <h2>{{sclass.num | uppercase}} {{sclass.letter | uppercase}} Details</h2>
+    <div><span>num: </span>{{sclass.num}}</div>
+    <div><span>letter: </span>{{sclass.letter}}</div>
+    <div>
+      <label>num:
+        <input [(ngModel)]="sclass.num" placeholder="num"/>
+      </label>
+    </div>
+    <div>
+      <label>letter:
+        <input [(ngModel)]="sclass.letter" placeholder="letter"/>
+      </label>
+    </div>
+    <button mat-icon-button color="primary" (click)="goBack()" title="go back"><mat-icon>
+      keyboard_return</mat-icon></button>
+    <button mat-icon-button color="primary" (click)="save()" title="save"><mat-icon>done</mat-icon></button>
+  </div>

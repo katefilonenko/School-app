@@ -1,0 +1,34 @@
+<h2>Classes</h2>
+
+<div>
+ 
+    <mat-form-field>
+        <mat-label>Add Number</mat-label>
+        <textarea #classNumber matInput placeholder="1-11"></textarea>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Add Letter</mat-label>
+        <textarea #classtLetter matInput placeholder="A-Z" ></textarea>
+      </mat-form-field>
+      <button mat-button color="primary" 
+      (click)="add(classNumber.value, classtLetter.value); classNumber.value='' ; classtLetter.value='' " title="add ">
+        Add
+      </button>
+  
+  <!-- (click) passes input value to add() and then clears the input -->
+  
+</div>
+
+<ul class="sclasses">
+  <button class="button" mat-raised-button *ngFor="let sclass of sclasses"
+    routerLink="/detail/{{sclass.num}}/{{sclass.letter}}">
+    {{sclass.num}}{{sclass.letter}}
+    <button mat-icon-button color="primary" class="delete" title="delete class"
+        (click)="delete(sclass, sclass1)"><mat-icon>delete</mat-icon>
+      </button>
+  </button>
+
+</ul>
+
+
