@@ -1,19 +1,19 @@
 <div *ngIf="sclass">
 
-    <h2>{{sclass.num | uppercase}} {{sclass.letter | uppercase}} Details</h2>
-    <div><span>num: </span>{{sclass.num}}</div>
-    <div><span>letter: </span>{{sclass.letter}}</div>
+    <h2>{{sclass.num }} {{sclass.letter | uppercase}} Details</h2>
     <div>
-      <label>num:
-        <input [(ngModel)]="sclass.num" placeholder="num"/>
-      </label>
-    </div>
-    <div>
-      <label>letter:
-        <input [(ngModel)]="sclass.letter" placeholder="letter"/>
-      </label>
+      <mat-label>Number: </mat-label>
+      <mat-form-field floatLabel="never">
+      <textarea matInput [(ngModel)]="sclass.num"></textarea>
+    </mat-form-field>
+    
+    <br>
+      <mat-label>Letter: </mat-label>
+      <mat-form-field floatLabel="never">
+      <textarea matInput [(ngModel)]="sclass.letter"></textarea>
+    </mat-form-field>
     </div>
     <button mat-icon-button color="primary" (click)="goBack()" title="go back"><mat-icon>
-      keyboard_return</mat-icon></button>
+    keyboard_return</mat-icon></button>
     <button mat-icon-button color="primary" (click)="save()" title="save"><mat-icon>done</mat-icon></button>
-  </div>
+</div>

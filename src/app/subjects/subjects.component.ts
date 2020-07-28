@@ -24,6 +24,8 @@ export class SubjectsComponent implements OnInit {
 
     add(name: string): void {
       name = name.trim();
+
+      
       if (!name) { return; }
       
       this.subjectsService.addSubject({ name } as Subject)

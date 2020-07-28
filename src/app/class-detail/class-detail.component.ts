@@ -24,11 +24,8 @@ export class ClassDetailComponent implements OnInit {
   }
 
   getClass(): void{
-    const num = +this.route.snapshot.paramMap.get('num');
-    const letter = this.route.snapshot.paramMap.get('letter');
-    //const num = +this.route.snapshot.params.num;
-    //const letter = this.route.snapshot.params.letter;
-    this.sclassService.getClass(num,letter)
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.sclassService.getClass(id)
     .subscribe(sclass => this.sclass = sclass);
   }
 

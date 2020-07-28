@@ -58,10 +58,10 @@ updateSubject(subject: Subject): Observable<any> {
 
 addSubject(subject: Subject): Observable<Subject> {
    
-  return this.http.post<Subject>(this.subjectsUrl, subject, this.httpOptions).pipe(
-    tap((newSubject: Subject) => this.log(`added subject w/ id=${newSubject.id}`)),
+  return this.http.post<Subject>(this.subjectsUrl, subject, this.httpOptions);/*.pipe(
+    tap((newSubject: Subject) => this.log(`added subject id=${newSubject.id}`)),
     catchError(this.handleError<Subject>('addSubject'))
-  );
+  );*/
 }
 
 deleteSubject(subject: Subject | number): Observable<Subject> {
@@ -71,19 +71,6 @@ deleteSubject(subject: Subject | number): Observable<Subject> {
   return this.http.delete<Subject>(url, this.httpOptions).pipe(
     tap(_ => this.log(`deleted subject id=${id}`)),
     catchError(this.handleError<Subject>('deleteSubject'))
-  );
-}
-
-searchSubjects(term: string): Observable<Subject[]> {
-  if (!term.trim()) {
-    // if not search term, return empty array.
-    return of([]);
-  }
-  return this.http.get<Subject[]>(`${this.subjectsUrl}/?name=${term}`).pipe(
-    tap(x => x.length ?
-       this.log(`found subjects matching "${term}"`) :
-       this.log(`no subjects matching "${term}"`)),
-    catchError(this.handleError<Subject[]>('searchSubjects', []))
   );
 }
 

@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+//import 'rxjs/add/observable/of';
 
 
 @Injectable({
@@ -25,11 +26,11 @@ export class ClassService {
     );
   }
 
-  getClass(num:number, letter:string): Observable<Class>{
-    const url = `${this.sclassesUrl}/${num}/${letter}`;
+  getClass(id: number): Observable<Class>{
+    const url = `${this.sclassesUrl}/${id}`;
     return this.http.get<Class>(url).pipe(
-      tap(_ => this.log(`fetched class num=${num} letter = ${letter}`)),
-      catchError(this.handleError<Class>(`getClass num=${num} letter = ${letter}`))
+      tap(_ => this.log(`fetched class id=${id}`)),
+      catchError(this.handleError<Class>(`getClass id=${id}`))
     );
   }
 
@@ -37,28 +38,41 @@ export class ClassService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+  /*addClass(sclass: Class): Observable<Class> {
+    this.http.post<Class>(this.sclassesUrl, sclass, this.httpOptions).pipe(
+      map((sclass: Class) => {this.log(`added class w/ num=${sclass.num} letter=${sclass.letter}`); console.log(sclass); return  sclass}),
+      catchError(this.handleError<Class>('addClass'))
+    );
+  }*/
+
   addClass(sclass: Class): Observable<Class> {
     return this.http.post<Class>(this.sclassesUrl, sclass, this.httpOptions).pipe(
-      tap((newClass: Class) => this.log(`added class w/ num=${newClass.num} letter=${newClass.letter}`)),
+      tap((newSClass: Class) => this.log(`added class id=${newSClass.id}`)),
       catchError(this.handleError<Class>('addClass'))
     );
   }
 
   updateClass(sclass: Class): Observable<any> {
     return this.http.put(this.sclassesUrl, sclass, this.httpOptions).pipe(
-      tap(_ => this.log(`updated sclass num=${sclass.num} letter${sclass.letter}`)),
+      tap(_ => this.log(`updated sclass id=${sclass.id}`)),
       catchError(this.handleError<any>('updateClass'))
     );
   }
+  /*addClass(sclass: Class): Observable<any> {
+    return this.http.put(this.sclassesUrl, sclass, this.httpOptions).pipe(
+      tap(_ => this.log(`updated sclass num=${sclass.num} letter${sclass.letter}`)),
+      catchError(this.handleError<any>('updateClass'))
+    );
+  }*/
 
-  deleteClass(sclass: Class | number, sclass1: Class | string): Observable<Class> {
+  deleteClass(sclass: Class | number): Observable<Class> {
     
-    const num = typeof sclass === 'number' ? sclass : sclass.num;
-    const letter = typeof sclass1 === 'string' ? sclass1 : sclass1.letter;
-    const url = `${this.sclassesUrl}/${num}/${letter}`;
+    const id = typeof sclass === 'number' ? sclass : sclass.id;
+    //const letter = typeof sclass1 === 'string' ? sclass1 : sclass1.letter;
+    const url = `${this.sclassesUrl}/${id}`;
   
     return this.http.delete<Class>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted subject num=${num} letter=${letter}`)),
+      tap(_ => this.log(`deleted subject num=${id}`)),
       catchError(this.handleError<Class>('deleteClass'))
     );
   }

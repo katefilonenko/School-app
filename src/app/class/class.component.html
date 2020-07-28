@@ -22,10 +22,10 @@
 
 <ul class="sclasses">
   <button class="button" mat-raised-button *ngFor="let sclass of sclasses"
-    routerLink="/detail/{{sclass.num}}/{{sclass.letter}}">
-    {{sclass.num}}{{sclass.letter}}
+    routerLink="/details/{{sclass.id}}">
+    {{sclass?.num}}{{sclass?.letter}}
     <button mat-icon-button color="primary" class="delete" title="delete class"
-        (click)="delete(sclass, sclass1)"><mat-icon>delete</mat-icon>
+        (click)="delete(sclass)"><mat-icon>delete</mat-icon>
       </button>
   </button>
 

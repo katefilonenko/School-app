@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: SubjectDetailComponent },
   { path: 'subjects', component: SubjectsComponent },
-  //{ path: 'detail/:num/:letter', component: ClassDetailComponent},
+  { path: 'details/:id', component: ClassDetailComponent},
   { path: 'sclasses', component: ClassComponent}
  
 ];

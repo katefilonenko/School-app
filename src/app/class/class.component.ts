@@ -28,13 +28,14 @@ export class ClassComponent implements OnInit {
     if (!letter){return;}
     this.sclassServise.addClass({num, letter}as Class)
     .subscribe(sclass => {
+      console.log(sclass)
       this.sclasses.push(sclass);
     });
   }
 
-  delete(sclass: Class, sclass1: Class): void {
+  delete(sclass: Class): void {
     this.sclasses = this.sclasses.filter(s => s !== sclass);
-    this.sclassServise.deleteClass(sclass, sclass1).subscribe();
+    this.sclassServise.deleteClass(sclass).subscribe();
   }
 
 }
