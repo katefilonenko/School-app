@@ -22,6 +22,10 @@
     "@angular/platform-browser-dynamic": "~10.0.4",
     "@angular/router": "~10.0.4",
     "angular-in-memory-web-api": "^0.11.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "joi": "^17.1.1",
+    "mongoose": "^5.9.27",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"
@@ -45,5 +49,17 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.5"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katefilonenko/School-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katefilonenko/School-app/issues"
+  },
+  "homepage": "https://github.com/katefilonenko/School-app#readme"
 }

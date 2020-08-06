@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService} from 'angular-in-memory-web-api';
-import { Subject } from './subject';
-import { Class } from './class';
+
 
 
 
@@ -20,8 +19,8 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 6, name: 'Russian' },
       { id: 7, name: 'Programming' },
       { id: 8, name: 'Chemistry' },
-      { id: 9, name: 'Magma' },
-      { id: 10, name: 'Biology' }
+      { id: 9, name: 'Biology' },
+      { id: 10, name: 'Literature' }
     ];
 
     const sclasses = [

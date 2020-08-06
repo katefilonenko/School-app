@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Class } from '../class';
 import { ClassService } from '../class.service';
-import {CLASSES} from '../mock-class';
+
 
 @Component({
   selector: 'app-class',
