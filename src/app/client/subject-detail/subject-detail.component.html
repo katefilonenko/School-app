@@ -1,0 +1,18 @@
+<div *ngIf="subject">
+
+    <h2>{{subject.name | uppercase}} Details</h2>
+    <!--div><span>id: </span>{{subject.id}}</div-->
+    <div>
+      <mat-label>Name:</mat-label>
+        <mat-form-field floatLabel="never">
+          <mat-label>{{subject.name}}</mat-label>
+         <textarea matInput [(ngModel)]="subject.name" ></textarea>
+      </mat-form-field>
+        <button mat-icon-button color="primary" (click)="goBack()" title="go back"><mat-icon>
+          keyboard_return</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="save()" title="save"><mat-icon>done</mat-icon></button>
+     
+      
+    </div>
+  
+  </div>
